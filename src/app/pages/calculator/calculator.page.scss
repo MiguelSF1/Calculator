@@ -64,11 +64,12 @@
 .expression {
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
     height: 40%;
     font-size: 28px;
     font-weight: bold;
-    margin-left: 7px;
-    overflow: auto;
+    margin-right: 7px;
+    overflow-x: auto;
 }
 
 .keyboard {
