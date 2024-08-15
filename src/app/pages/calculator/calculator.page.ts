@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { IonContent, ToastController, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonButton, ToastController } from '@ionic/angular/standalone';
 import { NgFor } from '@angular/common';
+import { Toast } from '@capacitor/toast';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-calculator',
@@ -79,14 +81,20 @@ export class CalculatorPage {
   }
 
   private async presentInvalidExprToast() {
-    const toast = await this.toastCtrl.create({
-      message: 'Invalid Expression',
-      duration: 2500,
-      position: 'bottom',
-      color: 'primary'
-    });
+    if (Capacitor.getPlatform() === 'web') {
+      const toast = await this.toastCtrl.create({
+        message: 'Invalid expression',
+        duration: 2500,
+        position: 'bottom',
+        color: 'primary'
+      });
 
-    await toast.present();
+      await toast.present();
+    } else {
+      await Toast.show({
+        text: 'Invalid expression',
+      });
+    }
   }
 
   public calcRes() {

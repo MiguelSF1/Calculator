@@ -1,46 +1,48 @@
 <ion-content>
-  <div class="container">
-    <div class="screen">
-      <div class="results">
-        <div class="result-line" *ngFor="let res of results">
-          <div class="expr" (click)="changeExpr(res.expr)">{{ res.expr }}</div>
-          <div class="equals">=</div>
-          <div class="result" (click)="changeExpr(res.result)">{{ res.result }}</div>
+  <div class="center">
+    <div class="container">
+      <div class="screen">
+        <div class="results">
+          <div class="result-line" *ngFor="let res of results">
+            <div class="expr" (click)="changeExpr(res.expr)">{{ res.expr }}</div>
+            <div class="equals">=</div>
+            <div class="result" (click)="changeExpr(res.result)">{{ res.result }}</div>
+          </div>
         </div>
+        <div class="hr-container"><div class="hr"></div></div>
+        <div class="expression">{{ expression }}</div>
       </div>
-      <div class="hr-container"><div class="hr"></div></div>
-      <div class="expression">{{ expression }}</div>
-    </div>
-    <div class="keyboard">
-      <div class="line">
-        <ion-button class="dark button" (click)="changeExpr('C')">C</ion-button>
-        <ion-button class="dark button" (click)="changeExpr('(')">(</ion-button>
-        <ion-button class="dark button" (click)="changeExpr(')')">)</ion-button>
-        <ion-button class="dark button" (click)="changeExpr('/')">/</ion-button>
-      </div>
-      <div class="line">
-        <ion-button class="light button" (click)="changeExpr('7')">7</ion-button>
-        <ion-button class="light button" (click)="changeExpr('8')">8</ion-button>
-        <ion-button class="light button" (click)="changeExpr('9')">9</ion-button>
-        <ion-button class="dark button" (click)="changeExpr('*')">*</ion-button>
-      </div>
-      <div class="line">
-        <ion-button class="light button" (click)="changeExpr('4')">4</ion-button>
-        <ion-button class="light button" (click)="changeExpr('5')">5</ion-button>
-        <ion-button class="light button" (click)="changeExpr('6')">6</ion-button>
-        <ion-button class="dark button" (click)="changeExpr('-')">-</ion-button>
-      </div>
-      <div class="line">
-        <ion-button class="light button" (click)="changeExpr('1')">1</ion-button>
-        <ion-button class="light button" (click)="changeExpr('2')">2</ion-button>
-        <ion-button class="light button" (click)="changeExpr('3')">3</ion-button>
-        <ion-button class="dark button" (click)="changeExpr('+')">+</ion-button>
-      </div>
-      <div class="line">
-        <ion-button class="light button" (click)="changeExpr('0')">0</ion-button>
-        <ion-button class="light button" (click)="changeExpr('.')">.</ion-button>
-        <ion-button class="dark button" (click)="changeExpr('DEL')">DEL</ion-button>
-        <ion-button class="blue button" (click)="calcRes()">=</ion-button>
+      <div class="keyboard">
+        <div class="line">
+          <ion-button class="dark button" (click)="changeExpr('C')">C</ion-button>
+          <ion-button class="dark button" (click)="changeExpr('(')">(</ion-button>
+          <ion-button class="dark button" (click)="changeExpr(')')">)</ion-button>
+          <ion-button class="dark button" (click)="changeExpr('/')">/</ion-button>
+        </div>
+        <div class="line">
+          <ion-button class="light button" (click)="changeExpr('7')">7</ion-button>
+          <ion-button class="light button" (click)="changeExpr('8')">8</ion-button>
+          <ion-button class="light button" (click)="changeExpr('9')">9</ion-button>
+          <ion-button class="dark button" (click)="changeExpr('*')">*</ion-button>
+        </div>
+        <div class="line">
+          <ion-button class="light button" (click)="changeExpr('4')">4</ion-button>
+          <ion-button class="light button" (click)="changeExpr('5')">5</ion-button>
+          <ion-button class="light button" (click)="changeExpr('6')">6</ion-button>
+          <ion-button class="dark button" (click)="changeExpr('-')">-</ion-button>
+        </div>
+        <div class="line">
+          <ion-button class="light button" (click)="changeExpr('1')">1</ion-button>
+          <ion-button class="light button" (click)="changeExpr('2')">2</ion-button>
+          <ion-button class="light button" (click)="changeExpr('3')">3</ion-button>
+          <ion-button class="dark button" (click)="changeExpr('+')">+</ion-button>
+        </div>
+        <div class="line">
+          <ion-button class="light button" (click)="changeExpr('0')">0</ion-button>
+          <ion-button class="light button" (click)="changeExpr('.')">.</ion-button>
+          <ion-button class="dark button" (click)="changeExpr('DEL')">DEL</ion-button>
+          <ion-button class="blue button" (click)="calcRes()">=</ion-button>
+        </div>
       </div>
     </div>
   </div>
