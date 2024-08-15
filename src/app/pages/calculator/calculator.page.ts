@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { IonContent, ToastController, IonButton } from '@ionic/angular/standalone';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.page.html',
   styleUrls: ['./calculator.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, IonButton]
+  imports: [IonContent, IonButton, NgFor]
 })
 export class CalculatorPage {
   private toastCtrl = inject(ToastController);
@@ -78,6 +78,17 @@ export class CalculatorPage {
     return c === '+' || c === '-' || c === '*' || c === '/'; 
   }
 
+  private async presentInvalidExprToast() {
+    const toast = await this.toastCtrl.create({
+      message: 'Invalid Expression',
+      duration: 2500,
+      position: 'bottom',
+      color: 'primary'
+    });
+
+    await toast.present();
+  }
+
   public calcRes() {
     if (this.checkExpr()) {
       const res = eval?.(this.expression);
@@ -96,16 +107,5 @@ export class CalculatorPage {
     } else {
       this.expression += char;
     }
-  }
-
-  private async presentInvalidExprToast() {
-    const toast = await this.toastCtrl.create({
-      message: 'Invalid Expression',
-      duration: 3000,
-      position: 'top',
-      color: 'primary'
-    });
-
-    await toast.present();
   }
 }
